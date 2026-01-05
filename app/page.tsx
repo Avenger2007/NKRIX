@@ -1,3 +1,5 @@
+import CommandCenter from '@/components/CommandCenter';
+
 export default function Home() {
   return (
     <div className="relative min-h-screen bg-[#0a0a0a] font-sans text-[#e8e8e8]">
@@ -754,6 +756,9 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* Commander ATLAS - Interactive Assistant */}
+      <CommandCenter />
     </div>
   );
 }
