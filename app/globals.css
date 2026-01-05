@@ -1,21 +1,35 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #e8e8e8;
+  --army-green: #4a5c3a;
+  --olive-drab: #6b7c59;
+  --military-khaki: #c3b091;
+  --concrete-gray: #8b8b8b;
+  --rank-gold: #d4af37;
+  --alert-red: #c1440e;
+  --tactical-blue: #2d5f7f;
+  --night-vision-green: #39ff14;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-army-green: var(--army-green);
+  --color-olive-drab: var(--olive-drab);
+  --color-military-khaki: var(--military-khaki);
+  --color-rank-gold: var(--rank-gold);
+  --color-alert-red: var(--alert-red);
+  --color-tactical-blue: var(--tactical-blue);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #f4e8d0;
+    --foreground: #2d2416;
   }
 }
 
@@ -23,4 +37,122 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), sans-serif;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(rgba(107, 124, 89, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(107, 124, 89, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.tactical-border {
+  position: relative;
+  border: 1px solid rgba(107, 124, 89, 0.3);
+}
+
+.tactical-border::before,
+.tactical-border::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--rank-gold);
+}
+
+.tactical-border::before {
+  top: -2px;
+  left: -2px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.tactical-border::after {
+  bottom: -2px;
+  right: -2px;
+  border-left: none;
+  border-top: none;
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.scanline {
+  position: relative;
+  overflow: hidden;
+}
+
+.scanline::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    transparent,
+    rgba(57, 255, 20, 0.1),
+    transparent
+  );
+  animation: scanline 8s linear infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.status-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.corner-bracket {
+  position: relative;
+}
+
+.corner-bracket::before,
+.corner-bracket::after {
+  content: "「";
+  position: absolute;
+  color: var(--rank-gold);
+  font-size: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.corner-bracket::before {
+  left: -1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.corner-bracket::after {
+  content: "」";
+  right: -1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.corner-bracket:hover::before,
+.corner-bracket:hover::after {
+  opacity: 1;
 }

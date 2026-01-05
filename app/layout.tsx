@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio - Full Stack Developer",
-  description: "Professional portfolio showcasing web development projects, skills, and expertise in modern technologies including React, Next.js, TypeScript, and more.",
+  title: "TACTICAL DEV OPS | Full Stack Developer Portfolio",
+  description: "Military-grade web development operations. Specialized in tactical React deployments, Node.js missions, and full-stack warfare. Clearance Level: Senior Developer.",
 };
 
 export default function RootLayout({
