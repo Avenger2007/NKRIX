@@ -36,7 +36,7 @@ export default function CommandCenter() {
     if (!hasInteracted) {
       const timer = setTimeout(() => {
         addAtlasMessage(
-          "Greetings, visitor. I'm Commander ATLAS, Assistant Commandant of this tactical operations center.\n\nWhat brings you to our command center today?"
+          "Jai Hind! I'm Wing Commander ATLAS, on standby to assist your reconnaissance.\n\nHow may I help you explore this command post, Sahib?"
         );
         setHasInteracted(true);
       }, 3000);
@@ -75,20 +75,20 @@ export default function CommandCenter() {
     switch (action) {
       case 'show_projects':
         addAtlasMessage(
-          "Excellent choice. Let me brief you on our tactical operations.\n\nWe have successfully completed multiple high-priority missions including e-commerce platforms, enterprise dashboards, and API infrastructure.\n\nWhich operation would you like details on?"
+          "Affirmative, Sahib. Let me brief you on our operational record.\n\nWe have successfully completed multiple high-priority ops including e-commerce platforms, enterprise dashboards, and API infrastructure.\n\nWhich operation requires detailed sitrep?"
         );
         // Scroll to projects section
         document.getElementById('operations')?.scrollIntoView({ behavior: 'smooth' });
         break;
       case 'show_skills':
         addAtlasMessage(
-          "Our arsenal is comprehensive and battle-tested.\n\n🎯 Frontend Division: React, Next.js, TypeScript (Level 85)\n⚙️ Backend Division: Node.js, Express (Level 78)\n🗄️ Database Division: PostgreSQL, MongoDB (Level 72)\n🛠️ DevOps Division: Docker, AWS, CI/CD (Level 68)\n\nNeed specifics on any capability?"
+          "Roger that. Our technical armoury is comprehensive and battle-tested.\n\n🎯 Frontend Regiment: React, Next.js, TypeScript (Havildar ⭐⭐⭐)\n⚙️ Backend Regiment: Node.js, Express (Havildar ⭐⭐⭐)\n🗄️ Database Regiment: PostgreSQL, MongoDB (Naik ⭐⭐)\n🛠️ Engineering Regiment: Docker, AWS, CI/CD (Naik ⭐⭐)\n\nRequire detailed specifications on any equipment?"
         );
         document.getElementById('arsenal')?.scrollIntoView({ behavior: 'smooth' });
         break;
       case 'contact':
         addAtlasMessage(
-          "Initiating contact protocol.\n\nI can help you:\n\n1. 📧 Send encrypted message\n2. 📅 Schedule reconnaissance call\n3. 📋 Download service record (CV)\n\nWhat would you prefer?"
+          "Initiating communication protocol, Sahib.\n\nAvailable channels:\n\n1. 📧 Send secure message\n2. 📅 Schedule briefing call\n3. 📋 Download service dossier\n\nWhat would you prefer?"
         );
         document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
         break;
@@ -100,27 +100,27 @@ export default function CommandCenter() {
     const input = userInput.toLowerCase();
 
     if (input.includes('hire') || input.includes('project') || input.includes('work')) {
-      return "Outstanding! I'm detecting recruitment interest.\n\nOur operative is currently available for new missions. We specialize in full-stack operations with proven success in e-commerce, dashboards, and API deployments.\n\nWould you like to:\n1. Review past operations\n2. Discuss your specific mission requirements\n3. Schedule a tactical briefing call";
+      return "Outstanding, Sahib! Detecting recruitment interest.\n\nOur officer is currently available for new op deployments. We specialize in full-stack operations with proven success in e-commerce, dashboards, and API infrastructure.\n\nSahib may:\n1. Review operational records\n2. Discuss specific requirements\n3. Schedule briefing call\n\nJai Hind! 🇮🇳";
     }
 
     if (input.includes('skill') || input.includes('tech') || input.includes('stack')) {
-      return "Affirmative. Our technical arsenal includes:\n\n🎯 Frontend: React, Next.js, TypeScript\n⚙️ Backend: Node.js, Express, GraphQL\n🗄️ Databases: PostgreSQL, MongoDB, Redis\n🛠️ DevOps: Docker, AWS, CI/CD\n\nWhich domain requires detailed intel?";
+      return "Affirmative, Sahib. Technical armoury includes:\n\n🎯 Frontend Regiment: React, Next.js, TypeScript\n⚙️ Backend Regiment: Node.js, Express, GraphQL\n🗄️ Database Regiment: PostgreSQL, MongoDB, Redis\n🛠️ Engineering Regiment: Docker, AWS, CI/CD\n\nWhich regiment requires detailed specifications?";
     }
 
     if (input.includes('experience') || input.includes('portfolio')) {
-      return "Roger that. We have a decorated service record with multiple successful deployments:\n\n⚔️ E-Commerce Assault - High-traffic platform with payment integration\n💼 Dashboard Recon - Real-time analytics with complex data viz\n🎨 API Fortress - Scalable microservices architecture\n\nSelect any operation for a detailed briefing.";
+      return "Roger that, Sahib. Service record includes multiple successful ops:\n\n⚔️ Op VYAPAAR - High-traffic e-commerce with secure payments\n💼 Op DASHBOARD - Real-time analytics platform\n🎨 Op SETU - Scalable API infrastructure\n\nSelect any operation for detailed sitrep.";
     }
 
     if (input.includes('react') || input.includes('next')) {
-      return "Excellent question. React and Next.js are our primary frontend weapons.\n\nProficiency Level: 85 (Elite Operative)\nYears in Service: 5+\nMajor Deployments: 15+\n\nWe're particularly strong in:\n→ Performance optimization\n→ Server-side rendering\n→ Complex state management\n→ Component architecture\n\nNeed specific examples?";
+      return "Excellent question, Sahib. React and Next.js are primary equipment in our frontend regiment.\n\nProficiency Rank: Havildar ⭐⭐⭐ (85/100)\nYears of Service: 5+\nMajor Operations: 15+\n\nCore strengths:\n→ Performance optimization\n→ Server-side rendering\n→ Advanced state management\n→ Component architecture\n\nRequire specific operational examples?";
     }
 
     if (input.includes('contact') || input.includes('email') || input.includes('reach')) {
-      return "Contact protocols available:\n\n📧 Email: contact@example.com\n🐙 GitHub: View armory\n💼 LinkedIn: Professional network\n\nResponse time: <24 hours\nCurrent status: ✓ Available for missions\n\nShall I redirect you to the contact station?";
+      return "Communication protocols available, Sahib:\n\n📧 Email: contact@example.com\n🐙 GitHub: Technical armoury\n💼 LinkedIn: Professional network\n\nResponse time: <24 hours\nCurrent status: ✓ Available for deployment\n\nShall I redirect you to communication center?";
     }
 
     // Default response
-    return "Acknowledged. I'm here to help you understand our capabilities and past operations.\n\nI can provide intel on:\n→ Technical skills & proficiency\n→ Completed missions (projects)\n→ Contact & recruitment\n\nWhat would you like to know?";
+    return "Acknowledged, Sahib. Wing Commander ATLAS at your service.\n\nI can provide intelligence on:\n→ Technical armoury & proficiency ranks\n→ Completed operations (projects)\n→ Communication & recruitment protocols\n\nWhat information do you require?";
   };
 
   if (!isOpen) {
@@ -152,12 +152,12 @@ export default function CommandCenter() {
           </div>
           <div>
             <div className="font-mono text-xs font-bold uppercase text-[#e8e8e8]">
-              CMDR ATLAS
+              Wg Cdr ATLAS
             </div>
             <div className="flex items-center gap-1">
               <span className="h-1.5 w-1.5 rounded-full bg-[#39ff14]"></span>
               <span className="font-mono text-[10px] uppercase text-[#6b7c59]">
-                Online
+                On Duty
               </span>
             </div>
           </div>

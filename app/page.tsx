@@ -1,6 +1,16 @@
+'use client';
+
+import { useState } from 'react';
 import CommandCenter from '@/components/CommandCenter';
+import EntryCheckpoint from '@/components/EntryCheckpoint';
 
 export default function Home() {
+  const [hasAccess, setHasAccess] = useState(false);
+
+  if (!hasAccess) {
+    return <EntryCheckpoint onClearanceGranted={() => setHasAccess(true)} />;
+  }
+
   return (
     <div className="relative min-h-screen bg-[#0a0a0a] font-sans text-[#e8e8e8]">
       {/* Command Bar Navigation */}
@@ -12,7 +22,7 @@ export default function Home() {
             </div>
             <div>
               <div className="font-mono text-xs uppercase tracking-wider text-[#6b7c59]">
-                Call Sign
+                Code Name
               </div>
               <div className="text-sm font-semibold uppercase tracking-wide text-[#e8e8e8]">
                 TACTICAL DEV
@@ -73,7 +83,7 @@ export default function Home() {
         >
           <div className="mb-4 inline-block border border-[#c1440e] bg-[#c1440e]/10 px-3 py-1">
             <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#c1440e]">
-              ● CLASSIFIED - PERSONNEL DOSSIER
+              🔒 SECRET - PERSONNEL DOSSIER
             </span>
           </div>
 
@@ -94,7 +104,7 @@ export default function Home() {
                 <div className="flex gap-3">
                   <span className="w-32 text-[#6b7c59]">RANK:</span>
                   <span className="font-semibold text-[#d4af37]">
-                    Senior Developer
+                    Major (Development)
                   </span>
                 </div>
                 <div className="flex gap-3">
@@ -105,24 +115,24 @@ export default function Home() {
                   <span className="w-32 text-[#6b7c59]">STATUS:</span>
                   <span className="status-pulse flex items-center gap-2 text-[#39ff14]">
                     <span className="inline-block h-2 w-2 rounded-full bg-[#39ff14]"></span>
-                    Available for Missions
+                    Available for Op Deployment
                   </span>
                 </div>
                 <div className="flex gap-3">
-                  <span className="w-32 text-[#6b7c59]">DEPLOYMENT:</span>
-                  <span className="text-[#e8e8e8]">Global Operations</span>
+                  <span className="w-32 text-[#6b7c59]">POSTING:</span>
+                  <span className="text-[#e8e8e8]">All India Operations</span>
                 </div>
               </div>
 
               <div className="mb-8 border-l-2 border-[#4a5c3a] pl-4">
                 <h2 className="mb-3 font-mono text-xs font-bold uppercase tracking-widest text-[#6b7c59]">
-                  Mission Statement
+                  Operational Mandate
                 </h2>
                 <p className="text-base leading-relaxed text-[#c3b091]">
                   Executing precision web development operations with strategic
                   planning and tactical implementation. Specialized in React
                   operations, Node.js deployments, and full-stack mission
-                  success with 99.9% operational uptime.
+                  success with 99.9% operational uptime. Jai Hind! 🇮🇳
                 </p>
               </div>
 
@@ -171,11 +181,11 @@ export default function Home() {
           <div className="mb-12">
             <div className="mb-4 inline-block border-b-2 border-[#d4af37]">
               <h2 className="font-mono text-3xl font-bold uppercase tracking-tight text-[#e8e8e8]">
-                ⚔️ Mission Log
+                ⚔️ Operation Records
               </h2>
             </div>
             <p className="font-mono text-sm text-[#6b7c59]">
-              Completed and ongoing tactical operations
+              Completed and ongoing tactical operations • Sitrep Available
             </p>
           </div>
 
@@ -192,12 +202,12 @@ export default function Home() {
                   </span>
                 </div>
                 <h3 className="mb-2 font-mono text-xl font-bold uppercase text-[#e8e8e8]">
-                  E-COMMERCE ASSAULT
+                  OP VYAPAAR
                 </h3>
                 <div className="flex items-center gap-2">
                   <span className="inline-block h-2 w-2 rounded-full bg-[#39ff14]"></span>
                   <span className="font-mono text-xs uppercase text-[#39ff14]">
-                    ✓ Completed
+                    ✓ Op Successful
                   </span>
                 </div>
               </div>
@@ -261,12 +271,12 @@ export default function Home() {
                   </span>
                 </div>
                 <h3 className="mb-2 font-mono text-xl font-bold uppercase text-[#e8e8e8]">
-                  DASHBOARD RECON
+                  OP DASHBOARD
                 </h3>
                 <div className="flex items-center gap-2">
                   <span className="status-pulse inline-block h-2 w-2 rounded-full bg-[#d4af37]"></span>
                   <span className="font-mono text-xs uppercase text-[#d4af37]">
-                    ◐ In Progress
+                    ◐ Op Active
                   </span>
                 </div>
               </div>
@@ -330,12 +340,12 @@ export default function Home() {
                   </span>
                 </div>
                 <h3 className="mb-2 font-mono text-xl font-bold uppercase text-[#e8e8e8]">
-                  API FORTRESS
+                  OP SETU
                 </h3>
                 <div className="flex items-center gap-2">
                   <span className="inline-block h-2 w-2 rounded-full bg-[#39ff14]"></span>
                   <span className="font-mono text-xs uppercase text-[#39ff14]">
-                    ✓ Completed
+                    ✓ Op Successful
                   </span>
                 </div>
               </div>
@@ -394,11 +404,11 @@ export default function Home() {
           <div className="mb-12">
             <div className="mb-4 inline-block border-b-2 border-[#d4af37]">
               <h2 className="font-mono text-3xl font-bold uppercase tracking-tight text-[#e8e8e8]">
-                🎯 Arsenal & Capabilities
+                🎯 Technical Armoury
               </h2>
             </div>
             <p className="font-mono text-sm text-[#6b7c59]">
-              Tactical equipment and specialized training
+              Equipment inventory and specialized training regiments
             </p>
           </div>
 
@@ -414,7 +424,7 @@ export default function Home() {
                     Frontend
                   </h3>
                   <div className="font-mono text-xs text-[#6b7c59]">
-                    Division
+                    Regiment
                   </div>
                 </div>
               </div>
@@ -458,7 +468,7 @@ export default function Home() {
                     Backend
                   </h3>
                   <div className="font-mono text-xs text-[#6b7c59]">
-                    Division
+                    Regiment
                   </div>
                 </div>
               </div>
@@ -502,7 +512,7 @@ export default function Home() {
                     Database
                   </h3>
                   <div className="font-mono text-xs text-[#6b7c59]">
-                    Division
+                    Regiment
                   </div>
                 </div>
               </div>
@@ -546,7 +556,7 @@ export default function Home() {
                     DevOps
                   </h3>
                   <div className="font-mono text-xs text-[#6b7c59]">
-                    Division
+                    Regiment
                   </div>
                 </div>
               </div>
@@ -586,12 +596,12 @@ export default function Home() {
           <div className="tactical-border scanline bg-[#0a0a0a]/50 p-8 text-center lg:p-12">
             <div className="mb-6 inline-block border border-[#c1440e] bg-[#c1440e]/10 px-3 py-1">
               <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#c1440e]">
-                🎯 INITIATE CONTACT PROTOCOL
+                🎯 INITIATE COMMUNICATION PROTOCOL
               </span>
             </div>
 
             <h2 className="mb-4 font-mono text-4xl font-bold uppercase tracking-tight text-[#e8e8e8]">
-              Request Mission Briefing
+              Request Operation Briefing
             </h2>
             <p className="mx-auto mb-8 max-w-2xl text-base leading-relaxed text-[#c3b091]">
               Ready to deploy on your next operation? Send an encrypted message
@@ -652,11 +662,11 @@ export default function Home() {
           <div className="mb-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             <div>
               <h3 className="mb-3 font-mono text-xs font-bold uppercase tracking-widest text-[#6b7c59]">
-                Command Center
+                Command Post
               </h3>
               <p className="text-sm text-[#c3b091]">
                 Full Stack Developer specializing in tactical web operations and
-                mission-critical applications.
+                mission-critical applications. Jai Hind! 🇮🇳
               </p>
             </div>
             <div>
@@ -677,7 +687,7 @@ export default function Home() {
                     href="#operations"
                     className="text-[#c3b091] transition-colors hover:text-[#d4af37]"
                   >
-                    Mission Log
+                    Operation Records
                   </a>
                 </li>
                 <li>
@@ -685,7 +695,7 @@ export default function Home() {
                     href="#arsenal"
                     className="text-[#c3b091] transition-colors hover:text-[#d4af37]"
                   >
-                    Arsenal
+                    Technical Armoury
                   </a>
                 </li>
               </ul>
@@ -746,10 +756,10 @@ export default function Home() {
           <div className="border-t border-[#6b7c59]/30 pt-8">
             <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
               <div className="font-mono text-xs uppercase text-[#6b7c59]">
-                CLASSIFIED - FOR OFFICIAL USE ONLY
+                🇮🇳 SECRET - FOR OFFICIAL USE ONLY • JAI HIND
               </div>
               <div className="text-sm text-[#8b8b8b]">
-                © {new Date().getFullYear()} Tactical Dev Ops. All rights
+                © {new Date().getFullYear()} Indian Dev Command. All rights
                 reserved.
               </div>
             </div>
