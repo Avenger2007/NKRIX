@@ -11,7 +11,6 @@ export default function EntryCheckpoint({ onClearanceGranted }: EntryCheckpointP
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<Array<{ role: 'atlas' | 'user'; content: string }>>([]);
   const [visitorName, setVisitorName] = useState('');
-  const [purpose, setPurpose] = useState('');
 
   const addMessage = useCallback((role: 'atlas' | 'user', content: string) => {
     setMessages(prev => [...prev, { role, content }]);
@@ -60,7 +59,6 @@ export default function EntryCheckpoint({ onClearanceGranted }: EntryCheckpointP
         break;
 
       case 'purpose':
-        setPurpose(userInput);
         const purposeType = identifyPurpose(userInput);
         
         addMessage('atlas',

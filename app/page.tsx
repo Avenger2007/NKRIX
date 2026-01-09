@@ -6,6 +6,7 @@ import EntryCheckpoint from '@/components/EntryCheckpoint';
 
 export default function Home() {
   const [hasAccess, setHasAccess] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   if (!hasAccess) {
     return <EntryCheckpoint onClearanceGranted={() => setHasAccess(true)} />;
@@ -63,15 +64,81 @@ export default function Home() {
               </a>
             </li>
           </ul>
-          <div className="flex items-center gap-2 rounded border border-[#4a5c3a] bg-[#4a5c3a]/20 px-3 py-1">
-            <span className="font-mono text-xs uppercase tracking-wide text-[#c3b091]">
-              Rank
-            </span>
-            <span className="font-mono text-xs font-bold text-[#d4af37]">
-              LVL 85
-            </span>
+          <div className="flex items-center gap-4">
+            <div className="hidden items-center gap-2 rounded border border-[#4a5c3a] bg-[#4a5c3a]/20 px-3 py-1 sm:flex">
+              <span className="font-mono text-xs uppercase tracking-wide text-[#c3b091]">
+                Rank
+              </span>
+              <span className="font-mono text-xs font-bold text-[#d4af37]">
+                LVL 85
+              </span>
+            </div>
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="flex h-10 w-10 items-center justify-center border border-[#d4af37] bg-[#d4af37]/10 md:hidden"
+              aria-label="Toggle menu"
+            >
+              <span className="font-mono text-lg font-bold text-[#d4af37]">
+                {mobileMenuOpen ? '✕' : '☰'}
+              </span>
+            </button>
           </div>
         </nav>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="border-t border-[#6b7c59]/30 bg-[#0a0a0a]/98 md:hidden">
+            <ul className="flex flex-col gap-2 p-4 font-mono text-sm uppercase">
+              <li>
+                <a
+                  href="#dossier"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block border border-[#6b7c59]/30 bg-[#4a5c3a]/10 px-4 py-3 transition-colors hover:border-[#d4af37] hover:bg-[#d4af37]/10 hover:text-[#d4af37]"
+                >
+                  [Dossier]
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#operations"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block border border-[#6b7c59]/30 bg-[#4a5c3a]/10 px-4 py-3 transition-colors hover:border-[#d4af37] hover:bg-[#d4af37]/10 hover:text-[#d4af37]"
+                >
+                  [Operations]
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#arsenal"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block border border-[#6b7c59]/30 bg-[#4a5c3a]/10 px-4 py-3 transition-colors hover:border-[#d4af37] hover:bg-[#d4af37]/10 hover:text-[#d4af37]"
+                >
+                  [Arsenal]
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block border border-[#6b7c59]/30 bg-[#4a5c3a]/10 px-4 py-3 transition-colors hover:border-[#d4af37] hover:bg-[#d4af37]/10 hover:text-[#d4af37]"
+                >
+                  [Contact]
+                </a>
+              </li>
+              <li className="mt-2 border-t border-[#6b7c59]/30 pt-2">
+                <div className="flex items-center justify-center gap-2 px-4 py-2">
+                  <span className="font-mono text-xs uppercase text-[#6b7c59]">
+                    Rank
+                  </span>
+                  <span className="font-mono text-xs font-bold text-[#d4af37]">
+                    LVL 85
+                  </span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        )}
       </header>
 
       {/* Main Content */}
